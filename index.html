@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>C Symbol Table Generator</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>C Symbol Table Generator</h1>
+        <p>Compiler Design Mini Project</p>
+    </header>
+
+
+    <!-- FILE INPUT -->
+
+    <div class="card">
+
+        <h2>1. Input C Program</h2>
+
+        <input
+            type="file"
+            id="fileInput"
+            accept=".c,.h,.cpp"
+        >
+
+        <p class="or">OR</p>
+
+        <textarea
+            id="sourceCode"
+            placeholder="Paste your C source code here..."
+        ></textarea>
+
+        <button onclick="analyzeProgram()">
+            Analyze Program
+        </button>
+
+    </div>
+
+
+    <!-- SOURCE CODE -->
+
+    <div class="card">
+
+        <h2>2. Source Code</h2>
+
+        <pre id="displayCode">
+No source code loaded.
+        </pre>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+        <div class="stat">
+            <span id="totalSymbols">0</span>
+            <p>Total Symbols</p>
+        </div>
+
+        <div class="stat">
+            <span id="variables">0</span>
+            <p>Variables</p>
+        </div>
+
+        <div class="stat">
+            <span id="functions">0</span>
+            <p>Functions</p>
+        </div>
+
+        <div class="stat">
+            <span id="scopes">1</span>
+            <p>Scopes</p>
+        </div>
+
+    </div>
+
+
+    <!-- SYMBOL TABLE -->
+
+    <div class="card">
+
+        <div class="table-header">
+
+            <h2>3. Generated Symbol Table</h2>
+
+            <button onclick="downloadCSV()">
+                Export CSV
+            </button>
+
+        </div>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Scope</th>
+                        <th>Value</th>
+                        <th>Line</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="symbolTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <!-- ERRORS -->
+
+    <div class="card">
+
+        <h2>4. Compiler Messages</h2>
+
+        <div id="messages">
+            No analysis performed.
+        </div>
+
+    </div>
+
+
+    <footer>
+        Symbol Table Generator | Compiler Design
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
